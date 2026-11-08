@@ -3,7 +3,6 @@ import './contact.css';
 import Walmart from '../../assets/walmart.png';
 import Microsoft from '../../assets/microsoft.png';
 import Adobe from '../../assets/adobe.png';
-import Facebook from '../../assets/facebook.png';
 import TwitterIcon from '../../assets/twitter.png';
 import FacebookIcon from '../../assets/facebook-icon.png';
 import InstagramIcon from '../../assets/instagram.png';
