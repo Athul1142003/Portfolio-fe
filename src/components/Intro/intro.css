@@ -36,7 +36,7 @@
 }
 
 .introName {
-    background-image: linear-gradient(90deg, #ff3b3b, #2563eb);
+    background-image: linear-gradient(90deg, #ff3b3b, #b9c9ec);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
