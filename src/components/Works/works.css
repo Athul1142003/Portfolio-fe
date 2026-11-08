@@ -1,0 +1,161 @@
+#works {
+    margin: 0 auto;
+    min-height: calc(100vh - 4rem);
+    width: 100vw;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.worksTitle {
+    margin: 1rem 0;
+    font-size: 3rem;
+}
+
+.worksDesc {
+    font-weight: 300;
+    font-size: 1rem;
+    max-width: 45rem;
+}
+
+.worksImgs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    max-width: 65rem;
+}
+
+.worksImg {
+    display: block;
+    object-fit: cover;
+    height: 20rem;
+}
+
+.flipCard {
+    margin: 0.5rem;
+    border-radius: 0.75rem;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.flipCard:focus-visible {
+    outline: 2px solid yellow;
+    outline-offset: 4px;
+}
+
+.flipCardInner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flipCard.flipped .flipCardInner,
+.flipCard:focus-visible .flipCardInner {
+    transform: rotateY(180deg);
+}
+
+/* Separate rule so browsers without :has() still apply the one above */
+.flipCard:has(:focus-visible) .flipCardInner {
+    transform: rotateY(180deg);
+}
+
+/* Touch devices skip hover and flip via the tap-toggled .flipped class */
+@media (hover: hover) {
+    .flipCard:hover .flipCardInner {
+        transform: rotateY(180deg);
+    }
+}
+
+.flipCardFront,
+.flipCardBack {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.45);
+}
+
+.flipCardBack {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 0.5rem;
+    text-align: left;
+    border: 1px solid transparent;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 0, 0.12), transparent 60%) padding-box,
+        linear-gradient(160deg, rgb(50, 50, 50), rgb(22, 22, 22)) padding-box,
+        linear-gradient(135deg, rgba(255, 255, 0, 0.8), rgba(255, 165, 0, 0.25) 50%, rgba(255, 255, 255, 0.08)) border-box;
+}
+
+.flipCardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.flipCardTitle::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    margin: 0.65rem 0 0.75rem;
+    border-radius: 3px;
+    background: linear-gradient(90deg, yellow, orange);
+}
+
+/* Long descriptions scroll inside the card; the bottom fade hints there is more */
+.flipCardDesc {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 0.35rem 0.75rem 0;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 0, 0.4) transparent;
+    mask-image: linear-gradient(to bottom, black calc(100% - 0.75rem), transparent);
+}
+
+.worksBtn {
+    margin: 3rem 0;
+    padding: 0.5rem 2.5rem;
+    border: none;
+    border-radius: 2rem;
+    background: white;
+    font-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flipCardInner {
+        transition: none;
+    }
+}
+
+@media screen and (max-width:585px) {
+    .worksImg {
+        height: 48vw;
+    }
+    .flipCardBack {
+        padding: 0.75rem 0.75rem 0.35rem;
+    }
+    .flipCardTitle {
+        font-size: 0.8rem;
+    }
+    .flipCardTitle::after {
+        width: 1.75rem;
+        margin: 0.4rem 0 0.5rem;
+    }
+    .flipCardDesc {
+        font-size: 0.68rem;
+        line-height: 1.5;
+    }
+}
