@@ -10,7 +10,7 @@ const Intro = () => {
             <div className="introContent">
                 <span className="hello">Hello</span>
                 <span className="introText">I'm <span className="introName">Athul</span><br />a Web Developer</span>
-                <p className="introPara">I create web applications that are both functional and visually appealing.</p>
+                <p className="introPara">I build modern, responsive web applications that combine seamless functionality,<br/> clean design, and engaging user experiences.</p>
                 <button className='btn' onClick={() => window.open(resume, '_blank', 'noopener,noreferrer')}><img src={btnImg} className='btnImg' alt="Hire Me" />Resume</button>
             </div>
             <img src={bg} alt="Profile" className="bg" />
